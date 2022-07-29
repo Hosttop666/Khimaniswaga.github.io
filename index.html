@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.pill-nav a {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+  font-size: 17px;
+  border-radius: 5px;
+}
+
+.pill-nav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.pill-nav a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+  <div id="clockbox"></div>
+
+  <script type="text/javascript">
+  var tday=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  var tmonth=["January","February","March","April","May","June","July","August","September","October","November","December"];
+  
+  function GetClock(){
+  var d=new Date();
+  var nday=d.getDay(),nmonth=d.getMonth(),ndate=d.getDate(),nyear=d.getFullYear();
+  var nhour=d.getHours(),nmin=d.getMinutes(),nsec=d.getSeconds(),ap;
+  
+  if(nhour==0){ap=" AM";nhour=12;}
+  else if(nhour<12){ap=" AM";}
+  else if(nhour==12){ap=" PM";}
+  else if(nhour>12){ap=" PM";nhour-=12;}
+  
+  if(nmin<=9) nmin="0"+nmin;
+  if(nsec<=9) nsec="0"+nsec;
+  
+  var clocktext=""+tday[nday]+", "+tmonth[nmonth]+" "+ndate+", "+nyear+" "+nhour+":"+nmin+":"+nsec+ap+"";
+  document.getElementById('clockbox').innerHTML=clocktext;
+  }
+  
+  GetClock();
+  setInterval(GetClock,1000);
+  </script>
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+</div>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+img:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+</style>
+</head>
+<body>
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    font-family: 'Lato', sans-serif;
+  }
+  
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+  }
+  
+  .overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+    }
+  }
+  </style>
+  </head>
+  <body>
+  
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <a href="file:///C:/Users/Khima/Downloads/Document%20(1).pdf">About</a>
+      <a href="https://www.youtube.com/channel/UC9_EhYfyizdwmbCwUYzSfRg">My Youtube Page</a>
+      <a href="#">Home</a>
+      <a href="file:///C:/Users/Khima/Downloads/Document.pdf">Contact</a>
+  </div>
+ </div>
+  
+  <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Click Here To See My Info Menu</span>
+  
+  <script>
+  function openNav() {
+    document.getElementById("myNav").style.width = "100%";
+  }
+  
+  function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+  }
+  </script>
+<p>Shake Me:</p>
+<img src="Khimaniswaga.jpg" alt="Khimaniswaga" width="200" height="200
+<div id="main">
+  <button class="openbtn" onclick="openNav()">☰ Click To Open My Khimani Swaga Sidebar</button>  
+  <h1>KHIMANI SWAGA MESSAGE BUTTON (1)</h1>
+
+<button onclick="typeWriter()">Click Me To Display My Message</button>
+
+<p id="demo"></p>
+
+<script>
+var i = 0;
+var txt = 'Hi WELCOME TO MY WEBSITE. AS YOU ALL KNOW, IM THE OWNER OF THIS WEBSITE AND IM ALSO THE DEVELOPER OF THIS WEBSITE. AS YOU CAN CLEARLY SEE FROM THE LOOKS OF THINGS, THAT THERE IS NOTHING TOO INSTRESTING ABOUT MY WEBSITE BECAUSE IT IS STILL UNDER CONSTRUCTION 😁😁 BY ME. SO THE ONLY THING THAT YOU CAN DO WRIGHT NOW IS TO TAKE A TOUR. SO I HOPE TO SEE YOU AGAING SOME DAY, GOOD BYE 👋👋.';
+var speed = 100;
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("demo").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+</script>
+
+
+<
+<!-- Footer / About Section -->
+<footer class="w3-light-grey w3-padding-64 w3-center" id="about">
+  <h2>About</h2>
+  <img src="Khimaniswaga.jpg" class="w3-image w3-padding-32" width="1000" height="200">
+  <form style="margin:auto;width:60%" action="/action_page.php" target="_blank">
+    <h1>Just Me and Myself Have Travelled The World To Look For Old Lengendary Things That i Have Missed Out In My Life.</h1>
+    <h1>From This Day Forward, I Have Held My Head Up Straight, And Kept On Walking The Face Of This Earth For</h1>
+    <h1>Great Remains Of Our Ancestors Treasours. So My Brothers And Sisters,</h1>
+    <h1>I'm On A Journey To A land Far-Far Away. So Take Care And May God Bless America.</h1>
+    <h1>For A Nation Reborn</h1>
+
+  </body>
+  <html>
